@@ -3,8 +3,8 @@ function setup()
   createCanvas(windowWidth,windowHeight);
   background(100);
  
-  Tab_Section = new tab_section(windowWidth-60, height/2,width/2,width/5); //initialization of tab_Section scaleable*
-  Top_Section = new top_section(0, 0,windowWidth,250);
+  Tab_Section = new tab_section(windowWidth-60, height/2,width/2,250); //initialization of tab_Section scaleable* in progress
+  Top_Section = new top_section(0, 0,windowWidth,windowHeight/10); //initialization of top scaleable
   noStroke();// no outline
 }
 
