@@ -85,18 +85,6 @@ class tab_section //tab
          x = windowWidth-500;
        }
      }
-     if(dragging)
-     {
-       fill(50);
-     }
-     else if (rollover)
-     {
-       fill(100);
-     }
-     else
-     {
-       fill(175,200);
-     }
      //tab shape here//
      
     fill(70,70,70,255);
