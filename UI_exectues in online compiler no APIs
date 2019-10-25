@@ -234,6 +234,7 @@ function windowResized()
   y = height/2;
   w = width*2;
   h = 250;
+  Top_Section = new top_section(0, 0,windowWidth*3,windowHeight/6);
   
 
   
