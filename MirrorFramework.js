@@ -12,7 +12,7 @@ function setup() {
   w = width;
   h = 250;
 
-  Top_Section = new top_section(0, 0, windowWidth, windowHeight / 6); //initialization of top scaleable
+  Top_Section = new top_section(0, 0, windowWidth, windowHeight / 6);
   noStroke(); // no outline
 }
 
@@ -20,12 +20,12 @@ function draw() {
   background(100);
   //frameRate(30);
   Top_Section.display();
+  Top_Section.clock();
   //Tab_Section.display();
   Tab_Section.tab_movement();
 }
 
-class tab_section {
-  //tab
+class tab_section { //tab
   //the constructor
   constructor(
     xpos,
@@ -41,17 +41,7 @@ class tab_section {
   }
 
   //functions
-  display() {
-    //displays tab shape
-    fill(70, 70, 70, 255);
-    circle(this.xpos, this.ypos + 40, 40, 40);
-    circle(this.xpos, this.ypos + 210, 40, 40);
-    rect(this.xpos, this.ypos, this._width, this._height);
-    rect(this.xpos - 40, this.ypos + 45, 100, 170);
-    fill(100, 100, 100);
-    rect(this.xpos - 38, this.ypos + 90, 5, 60);
-    rect(this.xpos - 30, this.ypos + 80, 5, 80);
-  }
+
   tab_movement() {
     if (
       mouseX > this.xpos &&
@@ -84,16 +74,12 @@ class tab_section {
     //rect(this.xpos,this.ypos,this._width,this._height);
     rect(x, y + 45, 100, 170);
     rect(x + 40, y, w, h);
-
     fill(0, 0, 0, 0);
     rect(x, y, w, h);
   }
 } //end of tab_section
 
-fill(70, 70, 70, 255);
-
-class top_section {
-  //class for upper section to contain time and date
+class top_section { //class for upper section to contain time and date
   constructor(xpos, ypos, _width, _height) {
     this.xpos = xpos;
     this.ypos = ypos;
@@ -106,6 +92,34 @@ class top_section {
   display() {
     fill(70, 70, 70, 255);
     rect(this.xpos, this.ypos, this._width, this._height);
+  }
+  clock() {
+    var h, m, t;
+    var d, mon, y;
+    var weekdayStr;
+    var TimeDesignation;
+
+    h = hour();
+    m = minute();
+    d = day();
+
+    if (hour() > 12) {
+      TimeDesignation = 'PM';
+      h = h - 12;
+    } else {
+      TimeDesignation = 'AM';
+    }
+
+    textSize((windowHeight * windowWidth) / (windowHeight * 16));
+    fill(255, 255, 255);
+
+    text(h + ':' + nf(m, 2) + ' ', windowWidth / 1.25, windowHeight / 12);
+    textSize((windowHeight * windowWidth) / (windowHeight * 42));
+    text(TimeDesignation, windowWidth / 1.08, windowHeight / 22);
+    textSize((windowHeight * windowWidth) / (windowHeight * 25));
+    text('FRI ' + 'OCTOBER ' + d, windowWidth / 1.55, windowHeight / 6.75);
+    //date
+    //text(weekdayStr + "OCTOBER" + nf(d),100,480);
   }
 } //end of top_section
 
