@@ -25,7 +25,7 @@ function setup()
   
   
   
-  Top_Section = new top_section(0, 0,windowWidth,windowHeight/6); //initialization of top scaleable
+  Top_Section = new top_section(0, 0,windowWidth,windowHeight/4); //initialization of top scaleable
   noStroke();// no outline
 }
 >>>>>>> a964e2e62cc727992972035f9d31af6a66046577
@@ -68,17 +68,6 @@ class tab_section {
   }
 
   //functions
-  display() //displays tab shape
-  {
-    fill(70,70,70,255);
-    circle(this.xpos,this.ypos+40,40,40);
-    circle(this.xpos,this.ypos+210,40,40);
-    rect(this.xpos,this.ypos,this._width,this._height);
-    rect(this.xpos-40,this.ypos+45,100,170);
-    fill(100,100,100);
-    rect(this.xpos-38,this.ypos+90,5,60);
-    rect(this.xpos-30,this.ypos+80,5,80);
-  }
   tab_movement()
    {
      if(mouseX > this.xpos && mouseX < this.xpos + this._width && mouseY > this.ypos && mouseY < this.ypos + this._height) //is the mouse inside the bounding box?
