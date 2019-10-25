@@ -17,7 +17,7 @@ function setup()
   
   
   
-  Top_Section = new top_section(0, 0,windowWidth,windowHeight/6);
+  Top_Section = new top_section(0, 0,windowWidth*3,windowHeight/6);
   noStroke();// no outline
 }
 
@@ -119,12 +119,14 @@ class top_section //class for upper section to contain time and date
   {
     var h,m,t;
     var d, mon,y;
-    var weekdayStr;
+    var weekdayStr,weekday;
     var TimeDesignation;
     
     h = hour();
     m = minute();
     d = day();
+    mon = month();
+    y = year();
     
     if(hour() >12)
     {
@@ -136,9 +138,40 @@ class top_section //class for upper section to contain time and date
     {
       TimeDesignation = "AM";
     }
+    weekday = (d+mon+y + (y/4) +24) % 7;
+    
+    //conversion here
+    weekday = parseInt(weekday);
     
     
-    
+    if(weekday == 1)
+    {
+      weekdayStr = "SUN";
+    }
+    if(weekday == 2)
+    {
+      weekdayStr = "MON";
+    }
+    if(weekday == 3)
+    {
+      weekdayStr = "TUE";
+    }
+    if(weekday == 4)
+    {
+      weekdayStr = "WED";
+    }
+    if(weekday == 5)
+    {
+      weekdayStr = "THU";
+    }
+    if(weekday == 6)
+    {
+      weekdayStr = "FRI";
+    }
+    if(weekday == 7)
+    {
+      weekdayStr = "SAT";
+    }
     
     
     
@@ -151,7 +184,7 @@ class top_section //class for upper section to contain time and date
       textSize((windowHeight*windowWidth)/(windowHeight*42))
       text(TimeDesignation,windowWidth/1.08,windowHeight/22);
       textSize((windowHeight*windowWidth)/(windowHeight*25))
-      text("FRI " +"OCTOBER "+d ,windowWidth/1.55 ,windowHeight/6.75 );
+      text(weekdayStr+" OCTOBER "+d ,windowWidth/1.55 ,windowHeight/6.75 );
       //date 
       //text(weekdayStr + "OCTOBER" + nf(d),100,480);
     
@@ -192,4 +225,12 @@ function mouseReleased()
 {
   // Quit dragging
   dragging = false;
+}
+function windowResized() 
+{
+  resizeCanvas(windowWidth, windowHeight);
+    Top_Section.display();
+    Top_Section.clock();
+    Tab_Section.tab_movement();
+  
 }
