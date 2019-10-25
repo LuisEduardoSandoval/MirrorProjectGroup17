@@ -229,8 +229,12 @@ function mouseReleased()
 function windowResized() 
 {
   resizeCanvas(windowWidth, windowHeight);
-    Top_Section.display();
-    Top_Section.clock();
-    Tab_Section.tab_movement();
+  Tab_Section = new tab_section(windowWidth-100, height/2,width,250); 
+  x = windowWidth-100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
+  y = height/2;
+  w = width*2;
+  h = 250;
+  
+
   
 }
