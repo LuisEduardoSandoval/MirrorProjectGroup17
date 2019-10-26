@@ -88,7 +88,7 @@ class tab_section //tab
     fill(0,0,0,0);
     rect(x,y,w,h);
     button = createButton("dummy button")
-    .position(windowWidth/2,windowHeight/2);
+    .position(100,100);
     //button.mousePressed(event)// 
       
    }
