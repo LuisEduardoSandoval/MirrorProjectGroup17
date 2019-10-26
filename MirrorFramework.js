@@ -183,9 +183,9 @@ class top_section //class for upper section to contain time and date
       fill(255,255,255);
 
       text(h+ ":" + nf(m,2) +" ",windowWidth/1.25,windowHeight/12);
-      textSize((windowHeight*windowWidth)/(windowHeight*42))
+      textSize((windowHeight*windowWidth)/(windowHeight*42));
       text(TimeDesignation,windowWidth/1.08,windowHeight/22);
-      textSize((windowHeight*windowWidth)/(windowHeight*25))
+      textSize((windowHeight*windowWidth)/(windowHeight*25));
       text(weekdayStr+" OCTOBER "+d ,windowWidth/1.55 ,windowHeight/6.75 );
       //date 
       //text(weekdayStr + "OCTOBER" + nf(d),100,480);
