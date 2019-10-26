@@ -80,8 +80,8 @@ class tab_section //tab
     let button;
     fill(70,70,70,255);
     
-    circle(x+40,y+40,80,40);
-    circle(x+40,y+210,80,40);
+    ellipse(x+40,y+40,80,80);
+    ellipse(x+40,y+210,80,80);
     //rect(this.xpos,this.ypos,this._width,this._height);
     rect(x,y+45,100,170);
     rect(x+40,y,w,h);
