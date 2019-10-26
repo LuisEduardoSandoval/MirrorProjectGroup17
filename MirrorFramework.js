@@ -70,6 +70,21 @@ class tab_section {
     //tab shape here//
     let button;
     fill(70, 70, 70, 255);
+    
+    ellipse(x+40,y+40,80,80);
+    ellipse(x+40,y+210,80,80);
+    //rect(this.xpos,this.ypos,this._width,this._height);
+    rect(x,y+45,100,170);
+    rect(x+40,y,w,h);
+    fill(0,0,0,0);
+    rect(x,y,w,h);
+    button = createButton("dummy button")
+    .position(100,100);
+    //button.mousePressed(event)// 
+      
+   }
+
+}//end of tab_section
 
     ellipse(x + 40, y + 40, 80, 80);
     ellipse(x + 40, y + 210, 80, 80);
