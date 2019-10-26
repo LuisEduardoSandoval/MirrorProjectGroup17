@@ -213,14 +213,6 @@ function mousePressed()
   {
     x = windowWidth-100; // starting position
   }
-  //if(mouseX < x)
-  //{
-   // x = 500;
-  //}
-  //if(offsetX = 0)
-  //{
-    //x = windowWidth - 100;
-  //}
 }
 
 function mouseReleased() 
@@ -243,4 +235,5 @@ function windowResized()
   
 }
 // function create function here
+
 
