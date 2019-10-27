@@ -1,6 +1,7 @@
 var x, y, w, h; //variables for xpos, ypos, _width, _height as this. not allowed to be called in class methods
 var dragging = false;
 var rollover = false;
+var rlor = false;
 var offsetX, offsetY;
 var content;
 
@@ -14,6 +15,7 @@ function setup() {
   h = 250;
 
   Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6);
+  
   noStroke(); // no outline
 }
 
@@ -22,11 +24,14 @@ function draw() {
   //frameRate(30);
   Top_Section.display();
   Top_Section.clock();
-  //Tab_Section.display();
   Tab_Section.tab_movement();
+  Tab_Section.tab_display();
+  Tab_Section.applicationbtn(100,100);
+
 }
 
-class tab_section {
+class tab_section 
+{
   //tab
   //the constructor
   constructor(
@@ -68,7 +73,21 @@ class tab_section {
       }
     }
     //tab shape here//
-    let button;
+
+    /*fill(70, 70, 70, 255);
+    
+    ellipse(x+40,y+40,80,80);
+    ellipse(x+40,y+210,80,80);
+    //rect(this.xpos,this.ypos,this._width,this._height);
+    rect(x,y+45,100,170);
+    rect(x+40,y,w,h);
+    fill(0,0,0,0);
+    rect(x,y,w,h);*/
+    //button.mousePressed(event)// 
+      
+   }
+  tab_display()
+  {
     fill(70, 70, 70, 255);
     
     ellipse(x+40,y+40,80,80);
@@ -78,15 +97,57 @@ class tab_section {
     rect(x+40,y,w,h);
     fill(0,0,0,0);
     rect(x,y,w,h);
-    //button.mousePressed(event)// 
-      
-   }
+  }
+  
+  applicationbtn(appH,appW)
+  {
+    var appX,appY;
+    
+    this.appH = appH;
+    this.appW = appW;
+    this.xpos = x;
+    this.ypos = y;
+    
+    
+    if (
+          mouseX > this.xpos &&
+          mouseX < this.xpos + this.appW &&
+          mouseY > this.ypos &&
+          mouseY < this.ypos + this.appH
+        ) 
+    {
+      rlor = true;
+    }
+    else 
+    {
+      rlor = false;
+    }
+    if(rlor) //when it is hovered
+    {
+      fill(0,99,0);
+    }
+    else
+    {
+      fill(255);
+    }    
+    if(mouseIsPressed && rlor == true)
+    {
+      fill(0,0,0);
+    }
+    
+
+    rect(this.xpos,this.ypos,appH,appW);
+    
+  }
+  
 
 
 
 
     //button.mousePressed(event)//
 }//end of tab_section
+
+
 
 class top_section {
   //class for upper section to contain time and date
@@ -161,6 +222,16 @@ class top_section {
 } //end of top_section
 
 //mouse functions
+
+
+// function create function here
+function mouseReleased() {
+  // Quit dragging
+  dragging = false;
+}
+
+
+
 function mousePressed() {
   // Did I click on the rectangle?
   if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
@@ -174,10 +245,8 @@ function mousePressed() {
   }
 }
 
-function mouseReleased() {
-  // Quit dragging
-  dragging = false;
-}
+
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250);
@@ -188,4 +257,4 @@ function windowResized() {
   h = 250;
   Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6);
 }
-// function create function here
+
