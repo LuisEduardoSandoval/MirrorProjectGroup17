@@ -78,25 +78,15 @@ class tab_section {
     rect(x+40,y,w,h);
     fill(0,0,0,0);
     rect(x,y,w,h);
-    button = createButton("dummy button")
-    .position(100,100);
     //button.mousePressed(event)// 
       
    }
 
-}//end of tab_section
 
-    ellipse(x + 40, y + 40, 80, 80);
-    ellipse(x + 40, y + 210, 80, 80);
-    //rect(this.xpos,this.ypos,this._width,this._height);
-    rect(x, y + 45, 100, 170);
-    rect(x + 40, y, w, h);
-    fill(0, 0, 0, 0);
-    rect(x, y, w, h);
-    button = createButton('dummy button').position(100, 100);
+
+
     //button.mousePressed(event)//
-  }
-} //end of tab_section
+}//end of tab_section
 
 class top_section {
   //class for upper section to contain time and date
@@ -162,7 +152,7 @@ class top_section {
 
     text(h + ':' + nf(m, 2) + ' ', windowWidth / 1.25, windowHeight / 12);
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
-    text(TimeDesignation, windowWidth / 1.08, windowHeight / 22);
+    text(TimeDesignation, windowWidth / 1.05, windowHeight / 22);
     textSize((windowHeight * windowWidth) / (windowHeight * 25));
     text(weekdayStr + ' OCTOBER ' + d, windowWidth / 1.55, windowHeight / 6.75);
     //date
