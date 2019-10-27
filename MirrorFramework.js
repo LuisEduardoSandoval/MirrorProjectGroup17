@@ -122,7 +122,7 @@ class tab_section
     {
       rlor = false;
     }
-    if(rlor) //when it is hovered
+    if(rlor) //when the mouse is hovered arguments inside
     {
       fill(0,99,0);
     }
@@ -130,7 +130,7 @@ class tab_section
     {
       fill(255);
     }    
-    if(mouseIsPressed && rlor == true)
+    if(mouseIsPressed && rlor == true) //when the mouse is pressed on the button arguments inside
     {
       fill(0,0,0);
     }
@@ -144,7 +144,6 @@ class tab_section
 
 
 
-    //button.mousePressed(event)//
 }//end of tab_section
 
 
