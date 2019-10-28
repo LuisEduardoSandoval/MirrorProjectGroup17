@@ -15,7 +15,7 @@ function setup() {
   w = width;
   h = 250;
 
-  Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6);
+  Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6); //creating new top 
   
   noStroke(); // no outline
 }
@@ -23,17 +23,18 @@ function setup() {
 function draw() {
   background(100);
   //frameRate(30);
-  Top_Section.display();
-  Top_Section.clock();
-  Tab_Section.tab_movement();
-  Tab_Section.tab_display();
-  Tab_Section.applicationbtn(100,100);
+  Top_Section.display(); //displays top
+  Top_Section.clock(); //renders clock
+  Tab_Section.tab_movement(); //allows movement for tab
+  Tab_Section.tab_display(); //displays tab
+  Tab_Section.applicationbtn(50,50,30,40); //creates button
+  //Tab_Section.applicationbtn(50,50,30,100);
+  //Tab_Section.applicationbtn(50,50,30,160);
 
 }
-
+//start of tab section
 class tab_section 
 {
-  //tab
   //the constructor
   constructor(
     xpos,
@@ -51,15 +52,16 @@ class tab_section
   //functions
 
   tab_movement() {
-    if (
+    if (  //if the mouse is inside the bounding box
       mouseX > this.xpos &&
       mouseX < this.xpos + this._width &&
       mouseY > this.ypos &&
       mouseY < this.ypos + this._height
     ) {
-      //is the mouse inside the bounding box?
+      //if so rollover is true
       rollover = true;
     } else {
+      //if not rollover is false
       rollover = true;
     }
     if (dragging) {
@@ -72,45 +74,31 @@ class tab_section
       if (mouseX + offsetX < windowWidth - 502) {
         x = windowWidth - 500;
       }
-    }
-    //tab shape here//
-
-    /*fill(70, 70, 70, 255);
-    
-    ellipse(x+40,y+40,80,80);
-    ellipse(x+40,y+210,80,80);
-    //rect(this.xpos,this.ypos,this._width,this._height);
-    rect(x,y+45,100,170);
-    rect(x+40,y,w,h);
-    fill(0,0,0,0);
-    rect(x,y,w,h);*/
-    //button.mousePressed(event)// 
-      
-   }
-  tab_display()
+    }      
+  }
+  tab_display() //displays tab
   {
     fill(70, 70, 70, 255);
     
     ellipse(x+40,y+40,80,80);
     ellipse(x+40,y+210,80,80);
-    //rect(this.xpos,this.ypos,this._width,this._height);
     rect(x,y+45,100,170);
     rect(x+40,y,w,h);
     fill(0,0,0,0);
     rect(x,y,w,h);
   }
   
-  applicationbtn(appH,appW)
+  applicationbtn(appH,appW, offsetappX,offsetappY) //creates new buttons
   {
-    var appX,appY;
+    var appX,appY; //positions
     
     this.appH = appH;
     this.appW = appW;
-    this.xpos = x;
-    this.ypos = y;
+    this.xpos = x+offsetappX;
+    this.ypos = y+offsetappY;
     
     
-    if (
+    if ( //is the mouse inside the button?
           mouseX > this.xpos &&
           mouseX < this.xpos + this.appW &&
           mouseY > this.ypos &&
@@ -121,28 +109,24 @@ class tab_section
     }
     else 
     {
-      rlor = false; 
+      rlor = false; //if mouse isn't on button false
     }
     if(rlor) //when the mouse is hovered arguments inside
     {
-      fill(0,99,0);
+      fill(0,99,0); //change color green
     }
-    else
+    else //if the mouse is not on the box
     {
       fill(255);
     }    
-    if(mouseIsPressed && rlor == true) //when the mouse is pressed on the button arguments inside
-    {
-      btnOn = !btnOn; // switch to turn button on and off
-      fill(0,0,0);
-    }
+
     if(btnOn) //if the button is on  arguements inside
     {
       fill(255);
       text("hello",100,100);
     }
 
-    rect(this.xpos,this.ypos,appH,appW); //application text
+    rect(this.xpos,this.ypos,appH,appW); //button rectangle
     
   }
   
@@ -230,9 +214,14 @@ class top_section {
 
 
 // function create function here
-function mouseReleased() {
+function mouseReleased()  //if mouse is released over a specific box
+{
   // Quit dragging
   dragging = false;
+  if(rlor == true)//arguments for application button if mouse over button and is true execute
+  {
+    btnOn = !btnOn; // switch to turn button on and off
+  }
 }
 
 
@@ -252,8 +241,9 @@ function mousePressed() {
 
 
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+function windowResized()  //arguments for resizing window
+{
+  resizeCanvas(windowWidth, windowHeight); 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250);
 
   x = windowWidth - 100;
