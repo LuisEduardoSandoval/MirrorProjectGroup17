@@ -4,6 +4,7 @@ var rollover = false;
 var rlor = false;
 var offsetX, offsetY;
 var content;
+let btnOn = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -116,11 +117,11 @@ class tab_section
           mouseY < this.ypos + this.appH
         ) 
     {
-      rlor = true;
+      rlor = true;//is mouse hovered over box? if yes true
     }
     else 
     {
-      rlor = false;
+      rlor = false; 
     }
     if(rlor) //when the mouse is hovered arguments inside
     {
@@ -132,11 +133,16 @@ class tab_section
     }    
     if(mouseIsPressed && rlor == true) //when the mouse is pressed on the button arguments inside
     {
+      btnOn = !btnOn; // switch to turn button on and off
       fill(0,0,0);
     }
-    
+    if(btnOn) //if the button is on  arguements inside
+    {
+      fill(255);
+      text("hello",100,100);
+    }
 
-    rect(this.xpos,this.ypos,appH,appW);
+    rect(this.xpos,this.ypos,appH,appW); //application text
     
   }
   
@@ -256,4 +262,3 @@ function windowResized() {
   h = 250;
   Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6);
 }
-
