@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 var x, y, w, h; //variables for xpos, ypos, _width, _height as this. not allowed to be called in class methods
-=======
-var x,y,w,h; //variables for xpos, ypos, _width, _height as this. not allowed to be called in class methods
->>>>>>> a964e2e62cc727992972035f9d31af6a66046577
 var dragging = false;
 var rollover = false;
 var offsetX, offsetY;
 
-<<<<<<< HEAD
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-=======
 
 function setup() 
 {
@@ -27,17 +19,6 @@ function setup()
   
   Top_Section = new top_section(0, 0,windowWidth,windowHeight/4); //initialization of top scaleable
   noStroke();// no outline
-}
->>>>>>> a964e2e62cc727992972035f9d31af6a66046577
-
-  Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
-  x = windowWidth - 100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
-  y = height / 2;
-  w = width;
-  h = 250;
-
-  Top_Section = new top_section(0, 0, windowWidth, windowHeight / 6); //initialization of top scaleable
-  noStroke(); // no outline
 }
 
 function draw() 
