@@ -2,9 +2,11 @@ var x, y, w, h; //variables for xpos, ypos, _width, _height as this. not allowed
 var dragging = false;
 var rollover = false;
 var rlor = false;
+var rlor1 = false;
 var offsetX, offsetY;
 var content;
 let btnOn = false;
+let btnOn1 = false;
 let temp = 0;
 let weather = "";
 let json;
@@ -43,6 +45,7 @@ function draw() {
   Tab_Section.tab_movement(); //allows movement for tab
   Tab_Section.tab_display(); //displays tab
   Tab_Section.applicationbtn(50, 50, 30, 40); //creates button
+  Tab_Section.applicationbtn2(50,50,30,100);
   //Tab_Section.applicationbtn(50,50,30,100);
   //Tab_Section.applicationbtn(50,50,30,160);
 }
@@ -137,7 +140,43 @@ class tab_section {
     if (btnOn) {
       //if the button is on  arguements inside
       fill(255);
-      //text('hello', 100, 100);
+      text('hello', 100, 200);
+    }
+
+    rect(this.xpos, this.ypos, appH, appW); //button rectangle
+  }
+  applicationbtn2(appH,appW,offsetappX, offsetappY) 
+    {
+    var appX, appY; //positions
+
+    this.appH = appH;
+    this.appW = appW;
+    this.xpos = x + offsetappX;
+    this.ypos = y + offsetappY;
+
+    if (
+      //is the mouse inside the button?
+      mouseX > this.xpos &&
+      mouseX < this.xpos + this.appW &&
+      mouseY > this.ypos &&
+      mouseY < this.ypos + this.appH
+    ) {
+      rlor1 = true; //is mouse hovered over box? if yes true
+    } else {
+      rlor1 = false; //if mouse isn't on button false
+    }
+    if (rlor1) {
+      //when the mouse is hovered arguments inside
+      fill(0, 0, 255); //change color green
+    } //if the mouse is not on the box
+    else {
+      fill(255);
+    }
+
+    if (btnOn1) {
+      //if the button is on  arguements inside
+      fill(255);
+      text('hello', 100, 200);
     }
 
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
@@ -248,6 +287,10 @@ function mouseReleased() {
   if (rlor == true) {
     //arguments for application button if mouse over button and is true execute
     btnOn = !btnOn; // switch to turn button on and off
+  }
+   if(rlor1 == true)
+  {
+    btnOn1 = !btnOn1;
   }
 }
 
