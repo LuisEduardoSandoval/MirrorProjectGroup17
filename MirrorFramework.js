@@ -5,6 +5,16 @@ var rlor = false;
 var offsetX, offsetY;
 var content;
 let btnOn = false;
+let temp = 0;
+let weather = "";
+let json;
+let weather_description;
+
+function preload(){
+let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
+json = loadJSON(url);
+
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -14,6 +24,11 @@ function setup() {
   y = height / 2;
   w = width;
   h = 250;
+
+  // Weather stuff
+  temp = json.list[0].main.temp;
+  weather_description = json.list[0].weather[0].description;
+  
 
   Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6); //creating new top
 
@@ -122,7 +137,7 @@ class tab_section {
     if (btnOn) {
       //if the button is on  arguements inside
       fill(255);
-      text('hello', 100, 100);
+      //text('hello', 100, 100);
     }
 
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
@@ -215,6 +230,11 @@ class top_section {
     text(date_str, windowWidth / 1.55, windowHeight / 6.75);
     //date
     //text(weekdayStr + "OCTOBER" + nf(d),100,480);
+
+    text(h + Math.floor(temp) + "°F", windowWidth/10, windowHeight/12);
+    textSize((windowHeight * windowWidth) / (windowHeight * 42));
+
+    text(weather_description, windowWidth / 10, windowHeight / 8);
   }
 } //end of top_section
 
