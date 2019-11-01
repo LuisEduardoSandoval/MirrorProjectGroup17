@@ -16,8 +16,8 @@ function setup() {
   w = width;
   h = 250;
 
-  Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6); //creating new top 
-  
+  Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6); //creating new top
+
   noStroke(); // no outline
 
 }
@@ -29,14 +29,12 @@ function draw() {
   Top_Section.clock(); //renders clock
   Tab_Section.tab_movement(); //allows movement for tab
   Tab_Section.tab_display(); //displays tab
-  Tab_Section.applicationbtn(50,50,30,40); //creates button
+  Tab_Section.applicationbtn(50, 50, 30, 40); //creates button
   //Tab_Section.applicationbtn(50,50,30,100);
   //Tab_Section.applicationbtn(50,50,30,160);
-
 }
 //start of tab section
-class tab_section 
-{
+class tab_section {
   //the constructor
   constructor(
     xpos,
@@ -54,7 +52,8 @@ class tab_section
   //functions
 
   tab_movement() {
-    if (  //if the mouse is inside the bounding box
+    if (
+      //if the mouse is inside the bounding box
       mouseX > this.xpos &&
       mouseX < this.xpos + this._width &&
       mouseY > this.ypos &&
@@ -76,69 +75,61 @@ class tab_section
       if (mouseX + offsetX < windowWidth - 502) {
         x = windowWidth - 500;
       }
-    }      
+    }
   }
-  tab_display() //displays tab
-  {
+  tab_display() {
+    //displays tab
     fill(70, 70, 70, 255);
-    
-    ellipse(x+40,y+40,80,80);
-    ellipse(x+40,y+210,80,80);
-    rect(x,y+45,100,170);
-    rect(x+40,y,w,h);
-    fill(0,0,0,0);
-    rect(x,y,w,h);
+
+    ellipse(x + 40, y + 40, 80, 80);
+    ellipse(x + 40, y + 210, 80, 80);
+    rect(x, y + 45, 100, 170);
+    rect(x + 40, y, w, h);
+    fill(0, 0, 0, 0);
+    rect(x, y, w, h);
   }
-  
-  applicationbtn(appH,appW, offsetappX,offsetappY) //creates new buttons
-  {
-    var appX,appY; //positions
-    
+
+  applicationbtn(
+    appH,
+    appW,
+    offsetappX,
+    offsetappY //creates new buttons
+  ) {
+    var appX, appY; //positions
+
     this.appH = appH;
     this.appW = appW;
-    this.xpos = x+offsetappX;
-    this.ypos = y+offsetappY;
-    
-    
-    if ( //is the mouse inside the button?
-          mouseX > this.xpos &&
-          mouseX < this.xpos + this.appW &&
-          mouseY > this.ypos &&
-          mouseY < this.ypos + this.appH
-        ) 
-    {
-      rlor = true;//is mouse hovered over box? if yes true
-    }
-    else 
-    {
+    this.xpos = x + offsetappX;
+    this.ypos = y + offsetappY;
+
+    if (
+      //is the mouse inside the button?
+      mouseX > this.xpos &&
+      mouseX < this.xpos + this.appW &&
+      mouseY > this.ypos &&
+      mouseY < this.ypos + this.appH
+    ) {
+      rlor = true; //is mouse hovered over box? if yes true
+    } else {
       rlor = false; //if mouse isn't on button false
     }
-    if(rlor) //when the mouse is hovered arguments inside
-    {
-      fill(0,99,0); //change color green
-    }
-    else //if the mouse is not on the box
-    {
+    if (rlor) {
+      //when the mouse is hovered arguments inside
+      fill(0, 99, 0); //change color green
+    } //if the mouse is not on the box
+    else {
       fill(255);
-    }    
-
-    if(btnOn) //if the button is on  arguements inside
-    {
-      fill(255);
-      text("hello",100,100);
     }
 
-    rect(this.xpos,this.ypos,appH,appW); //button rectangle
-    
+    if (btnOn) {
+      //if the button is on  arguements inside
+      fill(255);
+      text('hello', 100, 100);
+    }
+
+    rect(this.xpos, this.ypos, appH, appW); //button rectangle
   }
-  
-
-
-
-
-}//end of tab_section
-
-
+} //end of tab_section
 
 class top_section {
   //class for upper section to contain time and date
@@ -161,6 +152,7 @@ class top_section {
     var weekdayStr, weekday;
     var TimeDesignation;
     var date;
+    var month_num;
 
     h = hour();
     m = minute();
@@ -176,6 +168,21 @@ class top_section {
     //conversion here
     date = new Date();
     weekday = date.getDay();
+    month_num = date.getMonth();
+
+    var month = new Array();
+    month[0] = 'JANUARY';
+    month[1] = 'FEBRUARY';
+    month[2] = 'MARCH';
+    month[3] = 'APRIL';
+    month[4] = 'MAY';
+    month[5] = 'JUNE';
+    month[6] = 'JULY';
+    month[7] = 'AUGUST';
+    month[8] = 'SEPTEMBER';
+    month[9] = 'OCTOBER';
+    month[10] = 'NOVEMBER';
+    month[11] = 'DECEMBER';
 
     if (weekday == 0) {
       weekdayStr = 'SUN';
@@ -206,7 +213,11 @@ class top_section {
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
     text(TimeDesignation, windowWidth / 1.05, windowHeight / 22);
     textSize((windowHeight * windowWidth) / (windowHeight * 25));
-    text(weekdayStr + ' OCTOBER ' + d, windowWidth / 1.55, windowHeight / 6.75);
+    text(
+      weekdayStr + ' ' + month[month_num] + ' ' + d,
+      windowWidth / 1.55,
+      windowHeight / 6.75
+    );
     //date
     //text(weekdayStr + "OCTOBER" + nf(d),100,480);
   }
@@ -214,19 +225,16 @@ class top_section {
 
 //mouse functions
 
-
 // function create function here
-function mouseReleased()  //if mouse is released over a specific box
-{
+function mouseReleased() {
+  //if mouse is released over a specific box
   // Quit dragging
   dragging = false;
-  if(rlor == true)//arguments for application button if mouse over button and is true execute
-  {
+  if (rlor == true) {
+    //arguments for application button if mouse over button and is true execute
     btnOn = !btnOn; // switch to turn button on and off
   }
 }
-
-
 
 function mousePressed() {
   // Did I click on the rectangle?
@@ -241,11 +249,9 @@ function mousePressed() {
   }
 }
 
-
-
-function windowResized()  //arguments for resizing window
-{
-  resizeCanvas(windowWidth, windowHeight); 
+function windowResized() {
+  //arguments for resizing window
+  resizeCanvas(windowWidth, windowHeight);
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250);
 
   x = windowWidth - 100;
