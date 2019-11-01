@@ -5,7 +5,14 @@ var rlor = false;
 var offsetX, offsetY;
 var content;
 let btnOn = false;
+let temp = 0;
+let weather = "";
+let json;
 
+function preload(){
+let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=metric&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
+json = loadJSON(url);
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -15,11 +22,12 @@ function setup() {
   y = height / 2;
   w = width;
   h = 250;
+  //temp = json.main.temp;
+  //weather = json.weather[0].description;
 
   Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6); //creating new top
 
   noStroke(); // no outline
-
 }
 
 function draw() {
@@ -213,11 +221,8 @@ class top_section {
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
     text(TimeDesignation, windowWidth / 1.05, windowHeight / 22);
     textSize((windowHeight * windowWidth) / (windowHeight * 25));
-    text(
-      weekdayStr + ' ' + month[month_num] + ' ' + d,
-      windowWidth / 1.55,
-      windowHeight / 6.75
-    );
+    var date_str = weekdayStr + ' ' + month[month_num] + ' ' + d;
+    text(date_str, windowWidth / 1.55, windowHeight / 6.75);
     //date
     //text(weekdayStr + "OCTOBER" + nf(d),100,480);
   }
