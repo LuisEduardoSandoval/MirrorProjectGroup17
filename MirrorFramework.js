@@ -211,11 +211,8 @@ class top_section {
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
     text(TimeDesignation, windowWidth / 1.05, windowHeight / 22);
     textSize((windowHeight * windowWidth) / (windowHeight * 25));
-    text(
-      weekdayStr + ' ' + month[month_num] + ' ' + d,
-      windowWidth / 1.55,
-      windowHeight / 6.75
-    );
+    var date_str = weekdayStr + ' ' + month[month_num] + ' ' + d;
+    text(date_str, windowWidth / 1.55, windowHeight / 6.75);
     //date
     //text(weekdayStr + "OCTOBER" + nf(d),100,480);
   }
