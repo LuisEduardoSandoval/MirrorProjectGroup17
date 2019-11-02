@@ -12,6 +12,7 @@ let weather = "";
 let json;
 let weather_description;
 let TwitterImage;
+let SpotifyImage;
 
 function preload(){
 let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
@@ -23,6 +24,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   TwitterImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon.png');
   TwitterImage.hide();
+  SpotifyImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/Spotify.png');
+  SpotifyImage.hide();
   
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
@@ -155,6 +158,7 @@ class tab_section {
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
     fill(255);
     image(TwitterImage,this.xpos,this.ypos,50,50);
+    
   }
   applicationbtn2(appH,appW,offsetappX, offsetappY) 
     {
@@ -191,6 +195,7 @@ class tab_section {
     }
 
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
+    image(SpotifyImage,this.xpos,this.ypos,50,50);
   }
 } //end of tab_section
 
