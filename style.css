@@ -1,8 +1,22 @@
-html, body {
-    margin: 0;
-    padding: 0;
-  }
-  canvas {
-    display: block;
-  }
-  
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.display-on {
+  display: block;
+}
+
+.display-off {
+  display: none;
+}
+
+.position-frame {
+  position: relative;
+  top: 200px;
+  left: 15px;
+}
