@@ -31,7 +31,7 @@ let HealthImageHovered;
 
 
 function preload(){
-let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
+let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4';
 json = loadJSON(url);
 
 }
@@ -82,9 +82,10 @@ function draw() {
   
   
   Tab_Section.applicationbtn2(50,50,30,100);
-  Tab_Section.applicationbtn3(50,50,30,165);
-  Tab_Section.applicationbtn4(50,50,90,40);
-  Tab_Section.applicationbtn5(50,50,90,100);
+  Tab_Section.applicationbtn3(50,50,30,160);
+  Tab_Section.applicationbtn4(50,50,110,40);
+  Tab_Section.applicationbtn5(50,50,110,100);
+  Tab_Section.applicationbtn6(50,50,110,160);
 }
 //start of tab section
 class tab_section {
@@ -320,6 +321,42 @@ class tab_section {
     if(rlor4)
     {
       fill(0,0,99);
+    }
+  }
+     applicationbtn6(appH,appW,offsetappX, offsetappY) 
+    {
+    var appX, appY; //positions
+
+    this.appH = appH;
+    this.appW = appW;
+    this.xpos = x + offsetappX;
+    this.ypos = y + offsetappY;
+
+    if (
+      //is the mouse inside the button?
+      mouseX > this.xpos &&
+      mouseX < this.xpos + this.appW &&
+      mouseY > this.ypos &&
+      mouseY < this.ypos + this.appH
+    ) {
+      rlor5 = true; //is mouse hovered over box? if yes true
+    } 
+    else 
+    {
+      rlor5 = false; //if mouse isn't on button false
+    }
+
+
+    if (btnOn5) {
+      //if the button is on  arguements inside
+      fill(255);
+      text('button5', 100, 400);
+    }
+    fill(255);
+    rect(this.xpos, this.ypos, appH, appW);
+    if(rlor5 == true)
+    {
+      fill(0,99,0);
     }
   }
 } //end of tab_section
