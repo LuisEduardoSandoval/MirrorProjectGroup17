@@ -13,17 +13,27 @@ let json;
 let weather_description;
 let TwitterImage;
 let TwitterImageHovered;
-function preload(){
-let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
-json = loadJSON(url);
 
+// Select DOM items
+const spotify_frame = document.getElementById("spotify");
+
+function preload() {
+  let url =
+    "http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4";
+  json = loadJSON(url);
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  TwitterImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon2.png');
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style("z-index", "-1");
+  TwitterImage = createImg(
+    "https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon2.png"
+  );
   TwitterImage.hide();
-  TwitterImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon_Hovered.png');
+  TwitterImageHovered = createImg(
+    "https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon_Hovered.png"
+  );
   TwitterImageHovered.hide();
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
@@ -36,7 +46,6 @@ function setup() {
   temp = json.list[0].main.temp;
   weather_description = json.list[0].weather[0].description;
   weather_description = str(weather_description);
-  
 
   Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6); //creating new top
 
@@ -51,11 +60,8 @@ function draw() {
   Tab_Section.tab_movement(); //allows movement for tab
   Tab_Section.tab_display(); //displays tab
   Tab_Section.applicationbtn(50, 50, 30, 40); //creates button
-  
-  
-  
-  
-  Tab_Section.applicationbtn2(50,50,30,100);
+
+  Tab_Section.applicationbtn2(50, 50, 30, 100);
   //Tab_Section.applicationbtn(50,50,30,100);
   //Tab_Section.applicationbtn(50,50,30,160);
 }
@@ -72,7 +78,7 @@ class tab_section {
     this.ypos = ypos;
     this._width = _width;
     this._height = _height;
-    this.color = 'grey';
+    this.color = "grey";
   }
 
   //functions
@@ -142,20 +148,21 @@ class tab_section {
 
     if (btnOn) {
       //if the button is on  arguements inside
-      fill(255);
-      text('hello', 100, 200);
+      spotify_frame.classList.remove("display-off");
+      spotify_frame.classList.add("display-on");
+    } else {
+      spotify_frame.classList.add("display-off");
+      spotify_frame.classList.remove("display-on");
     }
-    fill(0,0,0,0);
+    fill(0, 0, 0, 0);
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
     fill(255);
-    image(TwitterImage,this.xpos-5,this.ypos,60,60);
-    if(rlor)
-    {
-      image(TwitterImageHovered,this.xpos-5,this.ypos,60,60);
+    image(TwitterImage, this.xpos - 5, this.ypos, 60, 60);
+    if (rlor) {
+      image(TwitterImageHovered, this.xpos - 5, this.ypos, 60, 60);
     }
   }
-  applicationbtn2(appH,appW,offsetappX, offsetappY) 
-    {
+  applicationbtn2(appH, appW, offsetappX, offsetappY) {
     var appX, appY; //positions
 
     this.appH = appH;
@@ -185,7 +192,7 @@ class tab_section {
     if (btnOn1) {
       //if the button is on  arguements inside
       fill(255);
-      text('goodbye', 100, 300);
+      text("goodbye", 100, 300);
     }
 
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
@@ -199,7 +206,7 @@ class top_section {
     this.ypos = ypos;
     this._width = _width;
     this._height = _height;
-    this.color = 'grey';
+    this.color = "grey";
   }
 
   //functions
@@ -220,10 +227,10 @@ class top_section {
     d = day();
 
     if (hour() > 12) {
-      TimeDesignation = 'PM';
+      TimeDesignation = "PM";
       h = h - 12;
     } else {
-      TimeDesignation = 'AM';
+      TimeDesignation = "AM";
     }
 
     //conversion here
@@ -232,100 +239,92 @@ class top_section {
     month_num = date.getMonth();
 
     var month = new Array();
-    month[0] = 'JANUARY';
-    month[1] = 'FEBRUARY';
-    month[2] = 'MARCH';
-    month[3] = 'APRIL';
-    month[4] = 'MAY';
-    month[5] = 'JUNE';
-    month[6] = 'JULY';
-    month[7] = 'AUGUST';
-    month[8] = 'SEPTEMBER';
-    month[9] = 'OCTOBER';
-    month[10] = 'NOVEMBER';
-    month[11] = 'DECEMBER';
+    month[0] = "JANUARY";
+    month[1] = "FEBRUARY";
+    month[2] = "MARCH";
+    month[3] = "APRIL";
+    month[4] = "MAY";
+    month[5] = "JUNE";
+    month[6] = "JULY";
+    month[7] = "AUGUST";
+    month[8] = "SEPTEMBER";
+    month[9] = "OCTOBER";
+    month[10] = "NOVEMBER";
+    month[11] = "DECEMBER";
 
     if (weekday == 0) {
-      weekdayStr = 'SUN';
+      weekdayStr = "SUN";
     }
     if (weekday == 1) {
-      weekdayStr = 'MON';
+      weekdayStr = "MON";
     }
     if (weekday == 2) {
-      weekdayStr = 'TUE';
+      weekdayStr = "TUE";
     }
     if (weekday == 3) {
-      weekdayStr = 'WED';
+      weekdayStr = "WED";
     }
     if (weekday == 4) {
-      weekdayStr = 'THU';
+      weekdayStr = "THU";
     }
     if (weekday == 5) {
-      weekdayStr = 'FRI';
+      weekdayStr = "FRI";
     }
     if (weekday == 6) {
-      weekdayStr = 'SAT';
+      weekdayStr = "SAT";
     }
 
     textSize((windowHeight * windowWidth) / (windowHeight * 16));
     fill(255, 255, 255);
 
-    text(h + ':' + nf(m, 2) + ' ', windowWidth / 1.25, windowHeight / 12);
+    text(h + ":" + nf(m, 2) + " ", windowWidth / 1.25, windowHeight / 12);
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
     text(TimeDesignation, windowWidth / 1.05, windowHeight / 22);
     textSize((windowHeight * windowWidth) / (windowHeight * 25));
-    var date_str = weekdayStr + ' ' + month[month_num] + ' ' + d;
+    var date_str = weekdayStr + " " + month[month_num] + " " + d;
     text(date_str, windowWidth / 1.55, windowHeight / 6.75);
-    text("Lubbock, TX",50,windowHeight/18);
-    textSize(windowHeight * windowWidth/(windowHeight+windowWidth*26));
+    text("Lubbock, TX", 50, windowHeight / 18);
+    textSize((windowHeight * windowWidth) / (windowHeight + windowWidth * 26));
     text(weather_description, 50, windowHeight / 10);
-    text(h + Math.floor(temp) + "°F", windowWidth/12.5, windowHeight/7);
+    text(h + Math.floor(temp) + "°F", windowWidth / 12.5, windowHeight / 7);
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
 
-    
-    
-    if(weather_description == "clear sky")
-    {
-      fill(170,160,20);
-      ellipse(windowWidth / 3,windowHeight / 12,100,100);
-    }
-    else if(weather_description == "few clouds" || "scattered clouds" || "broken clouds" || "overcast clouds")
-    {
-      fill(170,160,20);
-      ellipse(windowWidth / 3,windowHeight / 12,100,100);
+    if (weather_description == "clear sky") {
+      fill(170, 160, 20);
+      ellipse(windowWidth / 3, windowHeight / 12, 100, 100);
+    } else if (
+      weather_description == "few clouds" ||
+      "scattered clouds" ||
+      "broken clouds" ||
+      "overcast clouds"
+    ) {
+      fill(170, 160, 20);
+      ellipse(windowWidth / 3, windowHeight / 12, 100, 100);
       fill(255);
-      ellipse(windowWidth /3.1,windowHeight /8, 60,60);
-      ellipse(windowWidth/ 3.26 , windowHeight /7.7,50,50);
-      ellipse(windowWidth/ 2.97 , windowHeight /7.7,50,50);
-      
-      ellipse(windowWidth/ 2.8 , windowHeight /24.7,60,60);
-      ellipse(windowWidth/ 2.96 , windowHeight /22.7,50,50);
-      ellipse(windowWidth/ 2.68 , windowHeight /22.7,50,50);
-    }
+      ellipse(windowWidth / 3.1, windowHeight / 8, 60, 60);
+      ellipse(windowWidth / 3.26, windowHeight / 7.7, 50, 50);
+      ellipse(windowWidth / 2.97, windowHeight / 7.7, 50, 50);
 
-    
+      ellipse(windowWidth / 2.8, windowHeight / 24.7, 60, 60);
+      ellipse(windowWidth / 2.96, windowHeight / 22.7, 50, 50);
+      ellipse(windowWidth / 2.68, windowHeight / 22.7, 50, 50);
+    }
   }
 } //end of top_section
-class ApplicationWindow
-{
-  constructor(xpos,ypos,AppW,AppH)
-  {
+class ApplicationWindow {
+  constructor(xpos, ypos, AppW, AppH) {
     this.xpos = xpos;
     this.ypos = ypos;
     this.AppW = Appw;
     this.AppH = AppH;
   }
-  display()
-  {
+  display() {
     fill(150);
-    rect(xpos,y,400,400);
+    rect(xpos, y, 400, 400);
     fill(50);
     rect(xpos);
   }
-  
 }
-
-
 
 //mouse functions
 
@@ -338,8 +337,7 @@ function mouseReleased() {
     //arguments for application button if mouse over button and is true execute
     btnOn = !btnOn; // switch to turn button on and off
   }
-   if(rlor1 == true)
-  {
+  if (rlor1 == true) {
     btnOn1 = !btnOn1;
   }
 }
