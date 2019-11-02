@@ -279,9 +279,9 @@ class top_section {
     if(weather_description == "clear sky")
     {
       fill(170,160,20);
-      ellipse(windowWidth / 4,windowHeight / 12,100,100);
+      ellipse(windowWidth / 3,windowHeight / 12,100,100);
     }
-    if(weather_description == "few clouds" || "scattered clouds" || "broken clouds" || "overcast clouds")
+    else if(weather_description == "few clouds" || "scattered clouds" || "broken clouds" || "overcast clouds")
     {
       fill(170,160,20);
       ellipse(windowWidth / 3,windowHeight / 12,100,100);
