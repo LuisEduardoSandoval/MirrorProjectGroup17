@@ -11,6 +11,7 @@ let temp = 0;
 let weather = "";
 let json;
 let weather_description;
+let TwitterImage;
 
 function preload(){
 let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
@@ -20,6 +21,9 @@ json = loadJSON(url);
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  TwitterImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon.png');
+  TwitterImage.hide();
+  
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
   x = windowWidth - 100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
@@ -46,6 +50,10 @@ function draw() {
   Tab_Section.tab_movement(); //allows movement for tab
   Tab_Section.tab_display(); //displays tab
   Tab_Section.applicationbtn(50, 50, 30, 40); //creates button
+  
+  
+  
+  
   Tab_Section.applicationbtn2(50,50,30,100);
   //Tab_Section.applicationbtn(50,50,30,100);
   //Tab_Section.applicationbtn(50,50,30,160);
@@ -143,8 +151,10 @@ class tab_section {
       fill(255);
       text('hello', 100, 200);
     }
-
+    fill(0,0,0,0);
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
+    fill(255);
+    image(TwitterImage,this.xpos,this.ypos,50,50);
   }
   applicationbtn2(appH,appW,offsetappX, offsetappY) 
     {
@@ -177,7 +187,7 @@ class tab_section {
     if (btnOn1) {
       //if the button is on  arguements inside
       fill(255);
-      text('hello', 100, 200);
+      text('goodbye', 100, 300);
     }
 
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
@@ -298,6 +308,24 @@ class top_section {
     
   }
 } //end of top_section
+class ApplicationWindow
+{
+  constructor(xpos,ypos,AppW,AppH)
+  {
+    this.xpos = xpos;
+    this.ypos = ypos;
+    this.AppW = Appw;
+    this.AppH = AppH;
+  }
+  display()
+  {
+    fill(150);
+    rect(xpos,y,400,400);
+    fill(50);
+    rect(xpos);
+  }
+  
+}
 
 
 
