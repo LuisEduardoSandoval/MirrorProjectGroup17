@@ -14,6 +14,7 @@ let weather_description;
 let TwitterImage;
 let TwitterImageHovered;
 let SpotifyImage;
+let SpotifyImageHover;
 function preload(){
 let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
 json = loadJSON(url);
@@ -26,8 +27,10 @@ function setup() {
   TwitterImage.hide();
   TwitterImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon_Hovered.png');
   TwitterImageHovered.hide();
-  SpotifyImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/Spotify.png');
+  SpotifyImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/Spotify1.png');
   SpotifyImage.hide();
+  SpotifyImageHover = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/SpotifyHovered.png');
+  SpotifyImageHover.hide();
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
   x = windowWidth - 100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
@@ -177,22 +180,20 @@ class tab_section {
     } else {
       rlor1 = false; //if mouse isn't on button false
     }
-    if (rlor1) {
-      //when the mouse is hovered arguments inside
-      fill(0, 0, 255); //change color green
-    } //if the mouse is not on the box
-    else {
-      fill(255);
-    }
+
 
     if (btnOn1) {
       //if the button is on  arguements inside
       fill(255);
       text('goodbye', 100, 300);
     }
-
-    //ellipse(this.xpos, this.ypos, appH, appW); //button rectangle
-    image(SpotifyImage,this.xpos,this.ypos+10,50,50);
+    fill(0,0,0,0);
+    rect(this.xpos, this.ypos, appH, appW);
+    image(SpotifyImage,this.xpos-5,this.ypos,60,60);
+    if(rlor1)
+    {
+      image(SpotifyImageHover,this.xpos-5,this.ypos,60,60);
+    }
   }
 } //end of tab_section
 
