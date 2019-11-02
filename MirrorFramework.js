@@ -194,7 +194,7 @@ class tab_section {
       text('goodbye', 100, 300);
     }
 
-    rect(this.xpos, this.ypos, appH, appW); //button rectangle
+    ellipse(this.xpos-10, this.ypos-10, 50, 50); //button rectangle
     image(SpotifyImage,this.xpos,this.ypos,50,50);
   }
 } //end of tab_section
