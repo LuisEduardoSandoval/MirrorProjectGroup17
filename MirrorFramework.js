@@ -12,8 +12,7 @@ let weather = "";
 let json;
 let weather_description;
 let TwitterImage;
-let SpotifyImage;
-
+let TwitterImageHovered;
 function preload(){
 let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
 json = loadJSON(url);
@@ -22,11 +21,10 @@ json = loadJSON(url);
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  TwitterImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon.png');
+  TwitterImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon2.png');
   TwitterImage.hide();
-  SpotifyImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/Spotify.png');
-  SpotifyImage.hide();
-  
+  TwitterImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon_Hovered.png');
+  TwitterImageHovered.hide();
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
   x = windowWidth - 100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
@@ -141,13 +139,6 @@ class tab_section {
     } else {
       rlor = false; //if mouse isn't on button false
     }
-    if (rlor) {
-      //when the mouse is hovered arguments inside
-      fill(0, 99, 0); //change color green
-    } //if the mouse is not on the box
-    else {
-      fill(255);
-    }
 
     if (btnOn) {
       //if the button is on  arguements inside
@@ -157,8 +148,11 @@ class tab_section {
     fill(0,0,0,0);
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
     fill(255);
-    image(TwitterImage,this.xpos,this.ypos,50,50);
-    
+    image(TwitterImage,this.xpos-5,this.ypos,60,60);
+    if(rlor)
+    {
+      image(TwitterImageHovered,this.xpos-5,this.ypos,60,60);
+    }
   }
   applicationbtn2(appH,appW,offsetappX, offsetappY) 
     {
@@ -195,7 +189,6 @@ class tab_section {
     }
 
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
-    image(SpotifyImage,this.xpos,this.ypos,50,50);
   }
 } //end of tab_section
 
