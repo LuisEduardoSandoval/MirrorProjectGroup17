@@ -282,7 +282,7 @@ class top_section {
     text(date_str, windowWidth / 1.55, windowHeight / 6.75);
     text("Lubbock, TX",50,windowHeight/18);
     textSize(windowHeight * windowWidth/(windowHeight+windowWidth*26));
-    text(weather_description, 50, windowHeight / 10);
+    text(weather_description, 100, windowHeight / 10);
     text(h + Math.floor(temp) + "°F", windowWidth/12.5, windowHeight/7);
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
 
