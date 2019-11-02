@@ -49,6 +49,7 @@ function setup() {
   HealthImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/HealthIcon.png');
   HealthImage.hide();
   HealthImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/HealthIconHovered.png');
+  HealthImageHovered.hide();
   
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
