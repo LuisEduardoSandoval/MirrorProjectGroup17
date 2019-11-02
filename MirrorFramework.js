@@ -30,6 +30,7 @@ function setup() {
   // Weather stuff
   temp = json.list[0].main.temp;
   weather_description = json.list[0].weather[0].description;
+  weather_description = str(weather_description);
   
 
   Top_Section = new top_section(0, 0, windowWidth * 3, windowHeight / 6); //creating new top
@@ -267,15 +268,38 @@ class top_section {
     textSize((windowHeight * windowWidth) / (windowHeight * 25));
     var date_str = weekdayStr + ' ' + month[month_num] + ' ' + d;
     text(date_str, windowWidth / 1.55, windowHeight / 6.75);
-    //date
-    //text(weekdayStr + "OCTOBER" + nf(d),100,480);
-
-    text(h + Math.floor(temp) + "°F", windowWidth/10, windowHeight/12);
+    text("Lubbock, TX",50,windowHeight/18);
+    textSize(windowHeight * windowWidth/(windowHeight+windowWidth*26));
+    text(weather_description, 50, windowHeight / 10);
+    text(h + Math.floor(temp) + "°F", windowWidth/12.5, windowHeight/7);
     textSize((windowHeight * windowWidth) / (windowHeight * 42));
 
-    text(weather_description, windowWidth / 10, windowHeight / 8);
+    
+    
+    if(weather_description == "clear sky")
+    {
+      fill(170,160,20);
+      ellipse(windowWidth / 4,windowHeight / 12,100,100);
+    }
+    if(weather_description == "few clouds" || "scattered clouds" || "broken clouds" || "overcast clouds")
+    {
+      fill(170,160,20);
+      ellipse(windowWidth / 3,windowHeight / 12,100,100);
+      fill(255);
+      ellipse(windowWidth /3.1,windowHeight /8, 60,60);
+      ellipse(windowWidth/ 3.26 , windowHeight /7.7,50,50);
+      ellipse(windowWidth/ 2.97 , windowHeight /7.7,50,50);
+      
+      ellipse(windowWidth/ 2.8 , windowHeight /24.7,60,60);
+      ellipse(windowWidth/ 2.96 , windowHeight /22.7,50,50);
+      ellipse(windowWidth/ 2.68 , windowHeight /22.7,50,50);
+    }
+
+    
   }
 } //end of top_section
+
+
 
 //mouse functions
 
