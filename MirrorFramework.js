@@ -23,6 +23,8 @@ let TwitterImage;
 let TwitterImageHovered;
 let SpotifyImage;
 let SpotifyImageHover;
+let HealthImage;
+let HealthImageHovered;
 
 
 
@@ -44,6 +46,10 @@ function setup() {
   SpotifyImage.hide();
   SpotifyImageHover = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/SpotifyHovered.png');
   SpotifyImageHover.hide();
+  HealthImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/HealthIcon.png');
+  HealthImage.hide();
+  HealthImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/HealthIconHovered.png');
+  
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
   x = windowWidth - 100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
@@ -239,11 +245,12 @@ class tab_section {
       fill(255);
       text('byebye', 100, 300);
     }
-    fill(255);
+    fill(0,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
+    image(HealthImage,this.xpos-5,this.ypos,60,60);
     if(rlor2)
     {
-      fill(0,0,99);
+      image(HealthImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
     applicationbtn4(appH,appW,offsetappX, offsetappY) 
