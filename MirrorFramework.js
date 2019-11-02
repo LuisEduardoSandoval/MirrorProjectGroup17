@@ -18,6 +18,7 @@ function preload(){
 let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
 json = loadJSON(url);
 
+
 }
 
 function setup() {
@@ -28,6 +29,7 @@ function setup() {
   TwitterImageHovered.hide();
   SpotifyImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/Spotify.png');
   SpotifyImage.hide();
+ 
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
   x = windowWidth - 100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
