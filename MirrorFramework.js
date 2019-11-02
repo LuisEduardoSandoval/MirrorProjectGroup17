@@ -13,6 +13,7 @@ let json;
 let weather_description;
 let TwitterImage;
 let TwitterImageHovered;
+let SpotifyImage;
 function preload(){
 let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Lubbock,us&units=imperial&APPID=db28e6dfeb258f2c229fbcf4ea2435f4'
 json = loadJSON(url);
@@ -25,6 +26,8 @@ function setup() {
   TwitterImage.hide();
   TwitterImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/TwitterIcon_Hovered.png');
   TwitterImageHovered.hide();
+  SpotifyImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/Spotify.png');
+  SpotifyImage.hide();
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
   x = windowWidth - 100; //must be same values as Tab_Section to prevent errors in button dimension for Tab
@@ -188,12 +191,8 @@ class tab_section {
       text('goodbye', 100, 300);
     }
 
-<<<<<<< HEAD
-    ellipse(this.xpos-10, this.ypos-10, 50, 50); //button rectangle
-    image(SpotifyImage,this.xpos,this.ypos,50,50);
-=======
-    rect(this.xpos, this.ypos, appH, appW); //button rectangle
->>>>>>> a3c7b78890f4a3611b0a89055c11b90df5c4befb
+    //ellipse(this.xpos, this.ypos, appH, appW); //button rectangle
+    image(SpotifyImage,this.xpos,this.ypos+10,50,50);
   }
 } //end of tab_section
 
