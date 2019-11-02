@@ -75,7 +75,7 @@ function draw() {
   
   
   Tab_Section.applicationbtn2(50,50,30,100);
-  //Tab_Section.applicationbtn(50,50,30,100);
+  Tab_Section.applicationbtn3(50,50,30,165);
   //Tab_Section.applicationbtn(50,50,30,160);
 }
 //start of tab section
@@ -206,6 +206,43 @@ class tab_section {
     if(rlor1)
     {
       image(SpotifyImageHover,this.xpos-5,this.ypos,60,60);
+    }
+  }
+  
+  
+  
+  applicationbtn3(appH,appW,offsetappX, offsetappY) 
+    {
+    var appX, appY; //positions
+
+    this.appH = appH;
+    this.appW = appW;
+    this.xpos = x + offsetappX;
+    this.ypos = y + offsetappY;
+
+    if (
+      //is the mouse inside the button?
+      mouseX > this.xpos &&
+      mouseX < this.xpos + this.appW &&
+      mouseY > this.ypos &&
+      mouseY < this.ypos + this.appH
+    ) {
+      rlor2 = true; //is mouse hovered over box? if yes true
+    } else {
+      rlor2 = false; //if mouse isn't on button false
+    }
+
+
+    if (btnOn2) {
+      //if the button is on  arguements inside
+      fill(255);
+      text('byebye', 100, 300);
+    }
+    fill(255);
+    rect(this.xpos, this.ypos, appH, appW);
+    if(rlor2)
+    {
+      fill(0,0,99);
     }
   }
 } //end of tab_section
