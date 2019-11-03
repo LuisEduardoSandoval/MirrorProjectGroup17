@@ -25,7 +25,12 @@ let SpotifyImage;
 let SpotifyImageHover;
 let HealthImage;
 let HealthImageHovered;
-
+let NewsImage;
+let NewsImageHovered;
+let CalanderImage;
+let CalanderImageHovered;
+let SMSImage;
+let SMSImageHovered;
 
 
 
@@ -50,6 +55,18 @@ function setup() {
   HealthImage.hide();
   HealthImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/HealthIconHovered.png');
   HealthImageHovered.hide();
+  NewsImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/News.png');
+  NewsImage.hide();
+  NewsImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/NewsHovered.png');
+  NewsImageHovered.hide();
+  CalanderImage = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/Calander.png');
+  CalanderImage.hide();
+  CalanderImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/CalanderHovered.png');
+  CalanderImageHovered.hide();
+  SMSImage =createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/SMS1.png');
+  SMSImage.hide();
+  SMSImageHovered = createImg('https://raw.githubusercontent.com/LuisEduardoSandoval/MirrorProjectGroup17/master/SMS1Hovered.png');
+  SMSImageHovered.hide();
   
 
   Tab_Section = new tab_section(windowWidth - 100, height / 2, width, 250); //initialization of tab_Section scaleable* in progress
@@ -208,6 +225,7 @@ class tab_section {
       //if the button is on  arguements inside
       fill(255);
       text('goodbye', 100, 300);
+     
     }
     fill(0,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
@@ -282,11 +300,12 @@ class tab_section {
       fill(255);
       text('button3', 100, 300);
     }
-    fill(255);
+    fill(255,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
+    image(NewsImage,this.xpos-5,this.ypos,60,60);
     if(rlor3)
     {
-      fill(0,0,99);
+      image(NewsImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
     applicationbtn5(appH,appW,offsetappX, offsetappY) 
@@ -316,11 +335,12 @@ class tab_section {
       fill(255);
       text('button4', 100, 300);
     }
-    fill(255);
+    fill(255,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
+    image(CalanderImage,this.xpos-5,this.ypos,60,60);
     if(rlor4)
     {
-      fill(0,0,99);
+       image(CalanderImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
      applicationbtn6(appH,appW,offsetappX, offsetappY) 
@@ -352,11 +372,12 @@ class tab_section {
       fill(255);
       text('button5', 100, 400);
     }
-    fill(255);
+    fill(255,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
+    image(SMSImage,this.xpos-5,this.ypos,60,60);
     if(rlor5 == true)
     {
-      fill(0,99,0);
+      image(SMSImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
 } //end of tab_section
