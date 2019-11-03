@@ -185,11 +185,7 @@ class tab_section {
       rlor = false; //if mouse isn't on button false
     }
 
-    if (btnOn) {
-      //if the button is on  arguements inside
-      fill(255);
-      text('hello', 100, 200);
-    }
+
     fill(0,0,0,0);
     rect(this.xpos, this.ypos, appH, appW); //button rectangle
     fill(255);
@@ -197,6 +193,13 @@ class tab_section {
     if(rlor)
     {
       image(TwitterImageHovered,this.xpos-5,this.ypos,60,60);
+    }
+      if (btnOn) {
+      //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
+      //please place iframe before image
+      //iframehere TWITTER
+      image(TwitterImageHovered,this.xpos-5,this.ypos,60,60);
+      
     }
   }
   applicationbtn2(appH,appW,offsetappX, offsetappY) 
@@ -221,18 +224,21 @@ class tab_section {
     }
 
 
-    if (btnOn1) {
-      //if the button is on  arguements inside
-      fill(255);
-      text('goodbye', 100, 300);
-     
-    }
+
     fill(0,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
     image(SpotifyImage,this.xpos-5,this.ypos,60,60);
     if(rlor1)
     {
       image(SpotifyImageHover,this.xpos-5,this.ypos,60,60);
+    }
+    if (btnOn1) 
+    {
+      //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
+      //please place ifram before image
+      //iframe here SPOTIFY
+      image(SpotifyImageHover,this.xpos-5,this.ypos,60,60);
+     
     }
   }
   
@@ -260,16 +266,19 @@ class tab_section {
     }
 
 
-    if (btnOn2) {
-      //if the button is on  arguements inside
-      fill(255);
-      text('byebye', 100, 300);
-    }
+
     fill(0,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
     image(HealthImage,this.xpos-5,this.ypos,60,60);
     if(rlor2)
     {
+      image(HealthImageHovered,this.xpos-5,this.ypos,60,60);
+    }
+    if (btnOn2) 
+    {
+      //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
+      //please place ifram before image
+      //iframe here HEALTH
       image(HealthImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
@@ -295,16 +304,19 @@ class tab_section {
     }
 
 
-    if (btnOn3) {
-      //if the button is on  arguements inside
-      fill(255);
-      text('button3', 100, 300);
-    }
+
     fill(255,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
     image(NewsImage,this.xpos-5,this.ypos,60,60);
     if(rlor3)
     {
+      image(NewsImageHovered,this.xpos-5,this.ypos,60,60);
+    }
+    if (btnOn3)
+    {
+      //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
+      //please place ifram before image
+      //iframe here NEWS
       image(NewsImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
@@ -330,17 +342,20 @@ class tab_section {
     }
 
 
-    if (btnOn4) {
-      //if the button is on  arguements inside
-      fill(255);
-      text('button4', 100, 300);
-    }
+
     fill(255,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
     image(CalanderImage,this.xpos-5,this.ypos,60,60);
     if(rlor4)
     {
        image(CalanderImageHovered,this.xpos-5,this.ypos,60,60);
+    }
+    if (btnOn4) 
+    {
+      //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
+      //please place ifram before image
+      //iframe here CALANDER
+      image(CalanderImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
      applicationbtn6(appH,appW,offsetappX, offsetappY) 
@@ -367,16 +382,19 @@ class tab_section {
     }
 
 
-    if (btnOn5) {
-      //if the button is on  arguements inside
-      fill(255);
-      text('button5', 100, 400);
-    }
     fill(255,0,0,0);
     rect(this.xpos, this.ypos, appH, appW);
     image(SMSImage,this.xpos-5,this.ypos,60,60);
     if(rlor5 == true)
     {
+      image(SMSImageHovered,this.xpos-5,this.ypos,60,60);
+    }
+    
+    if (btnOn5) 
+    {
+      //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
+      //please place ifram before image
+      //iframe here SMS
       image(SMSImageHovered,this.xpos-5,this.ypos,60,60);
     }
   }
