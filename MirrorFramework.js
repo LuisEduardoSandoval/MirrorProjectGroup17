@@ -36,6 +36,7 @@ const spotify_frame = document.getElementById("spotify");
 const twitter_frame = document.getElementById("twitter");
 const news_frame = document.getElementById("news");
 const calendar_frame = document.getElementById("calendar");
+const health_frame = document.getElementById("health");
 
 function preload() {
   let url =
@@ -297,6 +298,11 @@ class tab_section {
       //please place ifram before image
       //iframe here HEALTH
       image(HealthImageHovered, this.xpos - 5, this.ypos, 60, 60);
+      health_frame.classList.remove("display-off");
+      health_frame.classList.add("display-on");
+    } else {
+      health_frame.classList.add("display-off");
+      health_frame.classList.remove("display-on");
     }
   }
   applicationbtn4(appH, appW, offsetappX, offsetappY) {

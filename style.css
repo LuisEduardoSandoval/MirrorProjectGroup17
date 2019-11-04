@@ -50,3 +50,11 @@ canvas {
   left: 650px;
   width: 300px;
 }
+
+.position-frame-health {
+  z-index: 5;
+  position: absolute;
+  top: 150px;
+  left: 1050px;
+  width: 680px;
+}
