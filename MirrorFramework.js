@@ -412,10 +412,6 @@ class tab_section {
       //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
       //please place ifram before image
       //iframe here SMS
-      fill(150,150,150);
-      rect(WindowWidth/2, 50,width/4,50);
-      fill(255);
-      text("Hello!").position(windowWidth/2,windowHeight/2);
       image(SMSImageHovered, this.xpos - 5, this.ypos, 60, 60);
     }
   }
