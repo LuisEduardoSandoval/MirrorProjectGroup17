@@ -34,3 +34,11 @@ canvas {
   left: 15px;
   width: 300px;
 }
+
+.position-frame-news {
+  z-index: 3;
+  position: absolute;
+  top: 150px;
+  left: 330px;
+  width: 300px;
+}

@@ -34,6 +34,7 @@ let SMSImageHovered;
 
 const spotify_frame = document.getElementById("spotify");
 const twitter_frame = document.getElementById("twitter");
+const news_frame = document.getElementById("news");
 
 function preload() {
   let url =
@@ -328,6 +329,11 @@ class tab_section {
       //please place ifram before image
       //iframe here NEWS
       image(NewsImageHovered, this.xpos - 5, this.ypos, 60, 60);
+      news_frame.classList.remove("display-off");
+      news_frame.classList.add("display-on");
+    } else {
+      news_frame.classList.add("display-off");
+      news_frame.classList.remove("display-on");
     }
   }
   applicationbtn5(appH, appW, offsetappX, offsetappY) {

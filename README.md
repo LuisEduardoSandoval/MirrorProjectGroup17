@@ -3,9 +3,9 @@ CONTAINS SOURCE CODE FOR MIRROR PROJECT
 
 
 # Widgets needed
-- [ ] Spotify
-- [ ] Twitter
-- [ ] News
+- [x] Spotify
+- [x] Twitter
+- [x] News
 - [ ] Calender
 - [ ] Text
 - [ ] Health
