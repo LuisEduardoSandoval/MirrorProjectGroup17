@@ -6,6 +6,6 @@ CONTAINS SOURCE CODE FOR MIRROR PROJECT
 - [x] Spotify
 - [x] Twitter
 - [x] News
-- [ ] Calender
+- [x] Calender
 - [ ] Text
 - [ ] Health

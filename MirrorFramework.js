@@ -35,6 +35,7 @@ let SMSImageHovered;
 const spotify_frame = document.getElementById("spotify");
 const twitter_frame = document.getElementById("twitter");
 const news_frame = document.getElementById("news");
+const calendar_frame = document.getElementById("calendar");
 
 function preload() {
   let url =
@@ -367,6 +368,11 @@ class tab_section {
       //please place ifram before image
       //iframe here CALANDER
       image(CalanderImageHovered, this.xpos - 5, this.ypos, 60, 60);
+      calendar_frame.classList.remove("display-off");
+      calendar_frame.classList.add("display-on");
+    } else {
+      calendar_frame.classList.add("display-off");
+      calendar_frame.classList.remove("display-on");
     }
   }
   applicationbtn6(appH, appW, offsetappX, offsetappY) {
