@@ -33,6 +33,7 @@ let SMSImage;
 let SMSImageHovered;
 
 const spotify_frame = document.getElementById("spotify");
+const twitter_frame = document.getElementById("twitter");
 
 function preload() {
   let url =
@@ -217,6 +218,11 @@ class tab_section {
       //please place iframe before image
       //iframehere TWITTER
       image(TwitterImageHovered, this.xpos - 5, this.ypos, 60, 60);
+      twitter_frame.classList.remove("display-off");
+      twitter_frame.classList.add("display-on");
+    } else {
+      twitter_frame.classList.add("display-off");
+      twitter_frame.classList.remove("display-on");
     }
   }
   applicationbtn2(appH, appW, offsetappX, offsetappY) {

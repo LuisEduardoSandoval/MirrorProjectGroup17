@@ -15,8 +15,22 @@ canvas {
   display: none;
 }
 
-.position-frame {
-  position: relative;
-  top: 200px;
+.draggable {
+  padding: 20px;
+}
+
+.position-frame-spotify {
+  z-index: 1;
+  position: absolute;
+  top: 150px;
   left: 15px;
+  width: 300px;
+}
+
+.position-frame-twitter {
+  z-index: 2;
+  position: absolute;
+  top: 560px;
+  left: 15px;
+  width: 300px;
 }

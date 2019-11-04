@@ -4,6 +4,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        $(".draggable").draggable();
+      });
+    </script>
     <title>Project 1</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="import" href="calendar_widget.html" />
@@ -11,7 +18,7 @@
   </head>
   <body>
     <!-- Spotify -->
-    <div id="spotify" class="position-frame">
+    <div id="spotify" class="position-frame-spotify draggable">
       <iframe
         src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
         width="300"
@@ -22,16 +29,21 @@
       ></iframe>
     </div>
     <!-- Twitter -->
-    <iframe
-      src="https://twitter.com/TwitterDev/likes?ref_src=twsrc%5Etfw"
-      frameborder="0"
-    >
+    <div id="twitter" class="position-frame-twitter draggable">
+      <a
+        class="twitter-timeline"
+        data-width="300"
+        data-height="380"
+        data-dnt="true"
+        href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw"
+        >Tweets by TwitterDev</a
+      >
       <script
         async
         src="https://platform.twitter.com/widgets.js"
         charset="utf-8"
       ></script>
-    </iframe>
+    </div>
     <!-- Main Mirror -->
     <script src="MirrorFramework.js"></script>
   </body>
