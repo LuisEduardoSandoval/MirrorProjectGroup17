@@ -412,6 +412,8 @@ class tab_section {
       //MAKE SURE TO FILL(NUMBER) to create color or else they will be transparent!
       //please place ifram before image
       //iframe here SMS
+      //rect(windowWidth/2,windoweight/2,200,50);
+     // text("Hello!");
       image(SMSImageHovered, this.xpos - 5, this.ypos, 60, 60);
     }
   }
@@ -500,7 +502,7 @@ class top_section {
     text(TimeDesignation, windowWidth / 1.05, windowHeight / 22);
     textSize((windowHeight * windowWidth) / (windowHeight * 25));
     var date_str = weekdayStr + " " + month[month_num] + " " + d;
-    text(date_str, windowWidth / 1.55, windowHeight / 6.75);
+    text(date_str, windowWidth / 1.65, windowHeight / 6.75);
     text("Lubbock, TX", 50, windowHeight / 18);
     textSize((windowHeight * windowWidth) / (windowHeight + windowWidth * 26));
     text(weather_description, 100, windowHeight / 10);
@@ -518,7 +520,7 @@ class top_section {
     ) {
       fill(170, 160, 20);
       ellipse(windowWidth / 3, windowHeight / 12, 100, 100);
-      fill(255);
+      fill(150);
       ellipse(windowWidth / 3.1, windowHeight / 8, 60, 60);
       ellipse(windowWidth / 3.26, windowHeight / 7.7, 50, 50);
       ellipse(windowWidth / 2.97, windowHeight / 7.7, 50, 50);
